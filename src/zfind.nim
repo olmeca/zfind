@@ -19,6 +19,7 @@ const
 
   """
   NIL = ""
+  MATCHALL = ".*"
   cPegsDirKey = "PEGS_DIR"
   cPegsDir = "pegs"
 
@@ -71,6 +72,7 @@ for kind, key, val in getopt():
     of "peg", "p": patternPeg = peg(val)
     of "pegfile", "P": patternPeg = peg(readPatternFile(val))
     of "help", "h": showHelp = true
+    of "list", "l": patternPeg = peg(MATCHALL)
     else: discard
   of cmdEnd: assert(false) # cannot happen
   else: discard
